@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Commerce Frontend</title>
+<link rel="stylesheet" href="ecommerce.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="search-bar">
+    <label for="searchInput" class="visually-hidden">Search products</label>
+    <input id="searchInput" type="text" placeholder="Search products..." autocomplete="off" aria-autocomplete="list" aria-controls="searchSuggestions" aria-expanded="false">
+    <ul id="searchSuggestions" class="suggestions" role="listbox" aria-label="Search suggestions"></ul>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" aria-label="Primary">
+    <a class="brand" href="ecommerce.html" id="homeBtn">HOME</a>
+    <button class="nav-btn" id="categoriesBtn" aria-haspopup="true" aria-expanded="false">Categories</button>
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle dark mode">🌙</button>
+
+    <div class="nav-buttons">
+    <button class="nav-btn" id="loginBtn" title="Login">Login</button>
+      <button id="profileBtn" style="display:none;">Profile</button>
+    </div>
+    <button class="nav-btn" id="addProductBtn" title="Add Product">Add Product</button>
+    
+
+    <button class="cart-btn" id="cartBtn" title="Cart" aria-label="Cart">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-count" id="cartCount" aria-live="polite" aria-atomic="true">0</span>
+    </button>
+    <ul id="categoriesMenu" class="categories-menu" role="menu" aria-label="Categories"></ul>
+  </nav>
+</header>
+
+
+<main class="container">
+  <section aria-labelledby="productsHeading">
+    <h2 id="productsHeading" class="section-title"></h2>
+    <div id="productGrid" class="product-grid" role="list"></div>
+    <div id="productDetail" class="product-detail" aria-live="polite" hidden></div>
+  </section>
+</main>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="footer-meta">
+    <span>&copy; <span id="currentYear"></span> ShopEase Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- Cart Drawer -->
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+  <div class="cart-overlay" data-cart-close="overlay"></div>
+  <div class="cart-panel" role="document">
+    <header class="cart-header">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button id="cartClose" class="modal-close" aria-label="Close cart">✕</button>
+    </header>
+    <div id="cartItems" class="cart-items" role="list"></div>
+    <footer class="cart-footer">
+      <div class="cart-summary">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <button class="add-btn" id="checkoutBtn">Checkout</button>
+    </footer>
+  </div>
+</aside>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" aria-hidden="true">
+  <div class="modal-backdrop" data-close="modal"></div>
+  <div class="modal-content" role="document">
+    <div class="modal-header">
+      <h3 id="loginTitle">Login</h3>
+      <button class="modal-close" id="loginClose" aria-label="Close login">✕</button>
+    </div>
+    <form id="loginForm" class="modal-body">
+      <label>
+        <span>Email or Phone</span>
+        <input id="loginIdentifier" name="identifier" type="text" placeholder="Enter email or phone" required>
+      </label>
+      <label>
+        <span>Password</span>
+        <input id="loginPassword" name="password" type="password" placeholder="Enter password" required minlength="6">
+      </label>
+      <button type="submit" class="add-btn" id="loginSubmit">Login</button>
+      <div class="auth-secondary">
+        <span>Don't have an account?</span>
+        <button type="button" class="link-btn" id="signupBtn">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="ecommerce.js"></script>
+<script src="login.js"></script>
+<script src="addProduct.js" defer></script>
+</body>
+</html>
