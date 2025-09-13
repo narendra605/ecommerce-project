@@ -44,7 +44,11 @@ This project demonstrates authentication, product management, and cart functiona
 ecommerce-project/
 ├── backend/ # Spring Boot project
 │ ├── simpleWebappSpringBoot/
-│ ├── src/
+│ ├── src/main/java
+│ └── Contoller
+│ └── Repository
+│ └── Service
+│ └── Model
 │ └── pom.xml
 ├── frontend/ # Static frontend code
 │ ├── ecommerce.html
